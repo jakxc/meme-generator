@@ -1,14 +1,14 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, ChangeEvent } from "react";
 
 function Meme()
 {
-    const [meme, setMeme] = React.useState({
+    const [meme, setMeme] = useState({
         topText: "",
         bottomText: "",
         randomImage: "http://i.imgflip.com/1bij.jpg" 
     })
     
-    const [allMemes, setAllMemes] = useState([]);
+    const [allMemes, setAllMemes] = useState([] as any[]);
     const [loading, setLoading] = useState(false);
     const [error, setError]= useState(null);
 
@@ -32,7 +32,7 @@ function Meme()
     }
 
     /*Event listener for input and button*/ 
-    function handleChange(event)
+    function handleChange(event: ChangeEvent<HTMLInputElement>)
     {
         const {name, value} = event.target;
 
