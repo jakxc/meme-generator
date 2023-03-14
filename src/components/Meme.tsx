@@ -2,14 +2,20 @@ import { useState, useEffect, ChangeEvent } from "react";
 
 function Meme()
 {
-    const [meme, setMeme] = useState({
+    interface IMeme {
+        topText: string;
+        bottomText: string;
+        randomImage: string;
+    }
+
+    const [meme, setMeme] = useState<IMeme>({
         topText: "",
         bottomText: "",
         randomImage: "http://i.imgflip.com/1bij.jpg" 
     })
     
-    const [allMemes, setAllMemes] = useState([] as any[]);
-    const [loading, setLoading] = useState(false);
+    const [allMemes, setAllMemes] = useState<any[]>([]);
+    const [loading, setLoading] = useState<boolean>(false);
     const [error, setError]= useState(null);
 
     useEffect(() => {
@@ -23,8 +29,8 @@ function Meme()
     
     
     function getMemeImage() {
-        const randomNumber = Math.floor(Math.random() * allMemes.length)
-        const url = allMemes[randomNumber].url
+        const randomNumber: number = Math.floor(Math.random() * allMemes.length)
+        const url: string = allMemes[randomNumber].url
         setMeme(prevMeme => ({
             ...prevMeme,
             randomImage: url
@@ -81,7 +87,7 @@ function Meme()
                 </button>
             </div>
             <div className="meme">
-                <img src={meme.randomImage} className="meme-image" />
+                <img src={meme.randomImage} className="meme-image" alt="Meme" />
                 <h2 className="meme-text top">{meme.topText}</h2>
                 <h2 className="meme-text bottom">{meme.bottomText}</h2>
             </div>
