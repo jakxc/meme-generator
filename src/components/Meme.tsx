@@ -1,6 +1,6 @@
 import { useState, useEffect, ChangeEvent } from "react";
 
-function Meme()
+const Meme = () =>
 {
     interface IMeme {
         topText: string;
@@ -19,7 +19,7 @@ function Meme()
     const [error, setError]= useState(null);
 
     useEffect(() => {
-        setLoading(true)
+        setLoading(true);
         fetch("https://api.imgflip.com/get_memes")
         .then(res => res.json())
         .then(data => setAllMemes(data.data.memes))
@@ -28,7 +28,7 @@ function Meme()
     }, [])
     
     
-    function getMemeImage() {
+    const getMemeImage = () => {
         const randomNumber: number = Math.floor(Math.random() * allMemes.length)
         const url: string = allMemes[randomNumber].url
         setMeme(prevMeme => ({
@@ -38,8 +38,7 @@ function Meme()
     }
 
     /*Event listener for input and button*/ 
-    function handleChange(event: ChangeEvent<HTMLInputElement>)
-    {
+    const handleChange = (event: ChangeEvent<HTMLInputElement>) => {
         const {name, value} = event.target;
 
         setMeme(prevMeme => ({
