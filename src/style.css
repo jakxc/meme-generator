@@ -1,9 +1,23 @@
+:root {
+    --clr-accent-300: #711F8D;
+    --clr-accent-200: #A818DA;
+    --clr-accent-100: #672280;
+
+
+    --clr-neutral-100: #ffffff;
+    --clr-neutral-200: #D5D4D8;
+
+    --ff-primary: "Karla", sans-serif;
+    --ff-seconday: impact, sans-serif;
+  }
+
+
 * {
     box-sizing: border-box;
 }
 
 body {
-    font-family: "Karla", sans-serif;
+    font-family: var(--ff-primary);
     margin: 0;
 }
 
@@ -16,17 +30,17 @@ main {
     display: flex;
     align-items: center;
     height: 65px;
-    background: linear-gradient(90deg, #672280 1.18%, #A626D3 100%);
+    background: linear-gradient(90deg, var(--clr-accent-100) 1.18%, var(--clr-accent-200) 100%);
     color: white;
     padding: 20px;
 }
 
-.header-image {
+.header__image {
     height: 100%;
     margin-right: 6px;
 }
 
-.header-title {
+.header__title {
     font-size: 20px;
     margin-right: auto;
 }
@@ -40,19 +54,19 @@ main {
     margin-bottom: 17px;
 }
 
-.form-input {
-    font-family: "Karla", sans-serif;
+.form__input {
+    font-family: var(--ff-primary);
     border-radius: 5px;
-    border: 1px solid #D5D4D8;
+    border: 1px solid var(--clr-neutral-200);
     text-indent: 5px;
 }
 
-.form-button {
+.form__button {
     grid-column: 1/-1;
     font-family: "Karla", sans-serif;
     border-radius: 5px;
-    background: linear-gradient(90.41deg, #711F8D 1.14%, #A818DA 100%);
-    color: white;
+    background: linear-gradient(90.41deg, var(--clr-accent-300) 1.14%, var(--clr-accent-200) 100%);
+    color: var(--clr-neutral-100);
     border: none;
     cursor: pointer;
 }
@@ -61,14 +75,17 @@ main {
 /***Meme***/
 .meme {
     position: relative;
+    display: flex;
+    justify-content: center;
 }
 
-.meme-image {
+.meme__image {
+    width: 600px;
     max-width: 100%;
     border-radius: 3px;
 }
 
-.meme-text {
+.meme__text {
     position: absolute;
     width: 80%;
     text-align: center;
@@ -76,10 +93,10 @@ main {
     transform: translateX(-50%);
     margin: 15px 0;
     padding: 0 5px;
-    font-family: impact, sans-serif;
+    font-family: var(--ff-seconday);
     font-size: 36px;
     text-transform: uppercase;
-    color: white;
+    color: var(--clr-neutral-100);
     letter-spacing: 1px;
     text-shadow:
         2px 2px 0 #000,

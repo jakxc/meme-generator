@@ -1,7 +1,6 @@
 import { useState, useEffect, ChangeEvent } from "react";
 
-const Meme = () =>
-{
+const Meme = () => {
     interface IMeme {
         topText: string;
         bottomText: string;
@@ -47,15 +46,13 @@ const Meme = () =>
         }))  
     }
 
-    if (loading) 
-    {
+    if (loading) {
         return (
             <h1>Loading...</h1>
         )
     }  
 
-    if (error) 
-    {
+    if (error) {
         return <pre>{JSON.stringify(error)}</pre>
     }
     
@@ -65,7 +62,7 @@ const Meme = () =>
                 <input 
                     type="text"
                     placeholder="Top text"
-                    className="form-input"
+                    className="form__input"
                     name="topText"
                     value={meme.topText}
                     onChange={handleChange}
@@ -73,22 +70,22 @@ const Meme = () =>
                 <input 
                     type="text"
                     placeholder="Bottom text"
-                    className="form-input"
+                    className="form__input"
                     name="bottomText"
                     value={meme.bottomText}
                     onChange={handleChange}
                 />
                 <button 
-                    className="form-button"
+                    className="form__button"
                     onClick={getMemeImage}
                 >
                     Get a new meme image 🖼
                 </button>
             </div>
             <div className="meme">
-                <img src={meme.randomImage} className="meme-image" alt="Meme" />
-                <h2 className="meme-text top">{meme.topText}</h2>
-                <h2 className="meme-text bottom">{meme.bottomText}</h2>
+                <img src={meme.randomImage} className="meme__image" alt="Meme" />
+                <h2 className="meme__text top">{meme.topText}</h2>
+                <h2 className="meme__text bottom">{meme.bottomText}</h2>
             </div>
         </main>
     )
